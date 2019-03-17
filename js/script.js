@@ -12,12 +12,14 @@ an object assosiated with the index number of the array is randomaly chosen
 the object is returned
 */
 function getRandomQuote() {
-  var randomNum = Math.floor(Math.random() * 10);
+  var randomNum = Math.floor(Math.random() * quotes.length);
+  console.log(randomNum);
   randomQuote = quotes[randomNum];
   return randomQuote
   }
 
 //console.log(getRandomQuote());
+
 
 /*
 function which creates DOM Elements with the random quote, source and if
@@ -37,9 +39,16 @@ function printQuote() {
       insidePara.appendChild(span1).setAttribute("class", "citation");
       element = document.getElementsByTagName("span")[0];
       element.innerText = newQuote.citation;
+    } else {
+        var span1 = document.createElement('span');
+        var insidePara = document.getElementById("quote-box").getElementsByTagName("p")[1];
+        insidePara.appendChild(span1).setAttribute("class", "citation");
+        element = document.getElementsByTagName("span")[0];
+        element.innerText = "";
     }
     if (newQuote.year.length > 0) {
       var span2 = document.createElement('span');
+      var insidePara = document.getElementById("quote-box").getElementsByTagName("p")[1];
       insidePara.appendChild(span2).setAttribute("class", "year");
       element = document.getElementsByTagName("span")[1];
       element.innerText = newQuote.year;

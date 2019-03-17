@@ -59,4 +59,10 @@ var quotes = [
     citation: "Futurama",
     year: "1999"
   },
+  {
+    quote: "Hi.",
+    source: "Mike",
+    citation: "",
+    year: "2019"
+  },
 ];
