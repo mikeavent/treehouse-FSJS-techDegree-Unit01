@@ -5,6 +5,7 @@ project 1 - A Random Quote Generator
 
 // quotes can be found in js/quotes.js
 
+var newQuote;
 
 /*
 function creates a random number from 0 - 9 and returns
@@ -14,13 +15,12 @@ the object is returned
 function getRandomQuote() {
   var randomNum = Math.floor(Math.random() * 10);
   randomQuote = quotes[randomNum];
-  //console.log(randomQuote);
   return randomQuote
   }
 
 //console.log(getRandomQuote());
 // new Quote object from getRandomQuote function
-var newQuote = getRandomQuote();
+newQuote = getRandomQuote();
 /***
   Create the `printQuote` function to:
    - Call the `getRandomQuote` function and assign it to a variable.
@@ -41,6 +41,7 @@ available the citation and year which are use a conditional statement which
 bases it's decision on whether or not it has any characters.
 */
 function printQuote() {
+  var html;
   var element = document.getElementById("quote-box").getElementsByClassName("quote")[0];
   element.innerHTML = newQuote.quote;
   var element = document.getElementById("quote-box").getElementsByClassName("source")[0];
@@ -52,20 +53,12 @@ function printQuote() {
       element = document.getElementsByTagName("span")[0];
       element.innerText = newQuote.citation;
     }
-    if (newQuote.citation.length > 0) {
+    if (newQuote.year.length > 0) {
       var span2 = document.createElement('span');
       insidePara.appendChild(span2).setAttribute("class", "year");
       element = document.getElementsByTagName("span")[1];
       element.innerText = newQuote.year;
     }
 }
-
-printQuote();
-/***
-  When the "Show another quote" button is clicked, the event listener
-  below will be triggered, and it will call, or "invoke", the `printQuote`
-  function. So do not make any changes to the line of code below this
-  comment.
-***/
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
