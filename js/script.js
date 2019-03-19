@@ -57,3 +57,13 @@ printQuote();
 
 // prints a new quote everytime the "show another quote" button is clicked
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+//
+function randomColour() {
+  var randomNum = Math.floor( Math.random() * 16777215).toString(16);
+  return randomNum;
+}
+
+console.log('#' +randomColour());
+
+document.body.style.backgroundColor = '#' + randomColour();
