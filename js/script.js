@@ -5,7 +5,6 @@ project 1 - A Random Quote Generator
 
 // quotes can be found in js/quotes.js
 
-
 /*
 function creates a random number from 0 - length of the quotes array.
 the function uses that number to pick an index number of the array and
@@ -13,11 +12,12 @@ the object associated is returned
 */
 function getRandomQuote() {
   var randomNum = Math.floor(Math.random() * quotes.length);
-  //console.log(randomNum);
+  //console.log(randomNum); //for testing
   randomQuote = quotes[randomNum];
   return randomQuote
   }
 
+// log the returned quote, for testing
 //console.log(getRandomQuote());
 
 // function that creates html and returns it
@@ -30,11 +30,14 @@ function html() {
   if (newQuote.citation.length > 0) {
     html += "<span class='citation'>" + newQuote.citation + spEnd;
   }
-  if (newQuote.year.length > 0) {
+  if (newQuote.year != null) {
     html += "<span class='year'>" + newQuote.year + spEnd;
   }
   return html
 }
+
+// for testing
+//console.log(html());
 
 // function gets div with id 'quote-box' and creates the html with the
 // getRandomQuote function
