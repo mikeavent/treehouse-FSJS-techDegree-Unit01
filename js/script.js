@@ -7,52 +7,44 @@ project 1 - A Random Quote Generator
 
 
 /*
-function creates a random number from 0 - 9 and returns
-an object assosiated with the index number of the array is randomaly chosen
-the object is returned
+function creates a random number from 0 - length of the quotes array.
+the function uses that number to pick an index number of the array and
+the object associated is returned
 */
 function getRandomQuote() {
   var randomNum = Math.floor(Math.random() * quotes.length);
-  console.log(randomNum);
+  //console.log(randomNum);
   randomQuote = quotes[randomNum];
   return randomQuote
   }
 
 //console.log(getRandomQuote());
 
-
-/*
-function which creates DOM Elements with the random quote, source and if
-available the citation and year which are use a conditional statement which
-bases it's decision on whether or not it has any characters.
-*/
-
-function printQuote() {
+// function that creates html and returns it
+function html() {
   var newQuote = getRandomQuote();
-  var element = document.getElementById("quote-box").getElementsByClassName("quote")[0];
-  element.innerHTML = newQuote.quote;
-  var element = document.getElementById("quote-box").getElementsByClassName("source")[0];
-  element.innerHTML = newQuote.source;
-    if (newQuote.citation.length > 0) {
-      var span1 = document.createElement('span');
-      var insidePara = document.getElementById("quote-box").getElementsByTagName("p")[1];
-      insidePara.appendChild(span1).setAttribute("class", "citation");
-      element = document.getElementsByTagName("span")[0];
-      element.innerText = newQuote.citation;
-    } else {
-        var span1 = document.createElement('span');
-        var insidePara = document.getElementById("quote-box").getElementsByTagName("p")[1];
-        insidePara.appendChild(span1).setAttribute("class", "citation");
-        element = document.getElementsByTagName("span")[0];
-        element.innerText = "";
-    }
-    if (newQuote.year.length > 0) {
-      var span2 = document.createElement('span');
-      var insidePara = document.getElementById("quote-box").getElementsByTagName("p")[1];
-      insidePara.appendChild(span2).setAttribute("class", "year");
-      element = document.getElementsByTagName("span")[1];
-      element.innerText = newQuote.year;
-    }
+  var pEnd = "</p>"
+  var spEnd = "</span>"
+  var html = "<p class='quote'>" + newQuote.quote + pEnd;
+  html += "<p class='source'>" + newQuote.source;
+  if (newQuote.citation.length > 0) {
+    html += "<span class='citation'>" + newQuote.citation + spEnd;
+  }
+  if (newQuote.year.length > 0) {
+    html += "<span class='year'>" + newQuote.year + spEnd;
+  }
+  return html
 }
 
+// function gets div with id 'quote-box' and creates the html with the
+// getRandomQuote function
+function printQuote() {
+  var newQuote = getRandomQuote();
+  document.getElementById("quote-box").innerHTML = html(newQuote);
+}
+
+// calls the printQuote function once to display new quote on page load
+printQuote();
+
+// prints a new quote everytime the "show another quote" button is clicked
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
