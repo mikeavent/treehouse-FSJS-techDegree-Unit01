@@ -33,6 +33,12 @@ function html() {
   if (newQuote.year != null) {
     html += "<span class='year'>" + newQuote.year + spEnd;
   }
+  // first if statement incase the tag key wasn't defined
+  if (typeof newQuote.tag !== 'undefined') {
+    if (newQuote.tag.length > 0 ) {
+      html += "<span class='year'>" + newQuote.tag + spEnd;
+    }
+  }
   return html
 }
 
