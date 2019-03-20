@@ -45,8 +45,7 @@ function html() {
 // for testing
 //console.log(html());
 
-// function gets div with id 'quote-box' and creates the html with the
-// getRandomQuote function
+// gets div with id 'quote-box' and creates the html with the getRandomQuote function
 function printQuote() {
   var newQuote = getRandomQuote();
   document.getElementById("quote-box").innerHTML = html(newQuote);
@@ -55,15 +54,29 @@ function printQuote() {
 // calls the printQuote function once to display new quote on page load
 printQuote();
 
-// prints a new quote everytime the "show another quote" button is clicked
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-//
+// random hex number
 function randomColour() {
   var randomNum = Math.floor( Math.random() * 16777215).toString(16);
   return randomNum;
 }
 
-console.log('#' +randomColour());
+// dom style with # and random hex number
+function changeColour() {
+  var newColour = randomColour();
+  document.body.style.backgroundColor = '#' + newColour;
+}
 
-document.body.style.backgroundColor = '#' + randomColour();
+// prints a new quote everytime the "show another quote" button is clicked
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+// shows new colour everytime the "show another quote" button is clicked
+document.getElementById('loadQuote').addEventListener("click", changeColour, false);
+
+// 20 second timer
+function timedQuote() {
+  var printTimer = setInterval(printQuote, 20000);
+  var colourTimer = setInterval(changeColour, 20000);
+}
+
+// call the timer to change quote and colour
+timedQuote();
