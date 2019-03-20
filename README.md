@@ -1,2 +1,5 @@
-# treehouse-FSJS-techDegree-Unit01
-Unit 1 of the Treehouse Full Stack JavaScript Tech Degree
+# Treehouse TechDegree Unit01
+## Random Quote Generator
+
+Creates a random quote and background colour every time the "Show another quote"
+button is clicked.  Also generates a new quote and background colour after 20 seconds.
