@@ -82,7 +82,7 @@ var quotes = [
     source: "Mike",
     citation: "",
     year: 2019,
-    tag: "Real Life"
+    //tag: "Real Life"
   },
   {
     quote: "I would do anything for love but i won't do that",
