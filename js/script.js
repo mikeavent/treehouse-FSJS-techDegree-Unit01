@@ -6,7 +6,7 @@ project 1 - A Random Quote Generator
 // quotes can be found in js/quotes.js
 
 /*
-function creates a random number from 0 - length of the quotes array.
+creates a random number from 0 - length of the quotes array.
 the function uses that number to pick an index number of the array and
 the object associated is returned
 */
