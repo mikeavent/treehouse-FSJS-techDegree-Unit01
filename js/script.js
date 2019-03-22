@@ -1,27 +1,16 @@
-/******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
-******************************************/
-
-// quotes can be found in js/quotes.js
-
 /*
 creates a random number from 0 - length of the quotes array.
 the function uses that number to pick an index number of the array and
 the object associated is returned
 */
-function getRandomQuote() {
+const getRandomQuote = () => {
   var randomNum = Math.floor(Math.random() * quotes.length);
-  //console.log(randomNum); //for testing
   randomQuote = quotes[randomNum];
   return randomQuote
   }
 
-// log the returned quote, for testing
-//console.log(getRandomQuote());
-
 // function that creates html and returns it
-function html() {
+const html = () => {
   var newQuote = getRandomQuote();
   var pEnd = "</p>"
   var spEnd = "</span>"
@@ -42,11 +31,8 @@ function html() {
   return html
 }
 
-// for testing
-//console.log(html());
-
 // gets div with id 'quote-box' and creates the html with the getRandomQuote function
-function printQuote() {
+const printQuote = () => {
   var newQuote = getRandomQuote();
   document.getElementById("quote-box").innerHTML = html(newQuote);
 }
@@ -55,13 +41,13 @@ function printQuote() {
 printQuote();
 
 // random hex number
-function randomColour() {
+const randomColour = () => {
   var randomNum = Math.floor( Math.random() * 16777215).toString(16);
   return randomNum;
 }
 
 // dom style with # and random hex number
-function changeColour() {
+const changeColour = () => {
   var newColour = randomColour();
   document.body.style.backgroundColor = '#' + newColour;
 }
@@ -73,7 +59,7 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 document.getElementById('loadQuote').addEventListener("click", changeColour, false);
 
 // 20 second timer
-function timedQuote() {
+const timedQuote = () => {
   var printTimer = setInterval(printQuote, 20000);
   var colourTimer = setInterval(changeColour, 20000);
 }
